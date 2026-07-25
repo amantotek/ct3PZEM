@@ -17,7 +17,7 @@ This project uses an ESP32 to obtain electrical measurements from a PZEM energy 
 - ESP32
 - PZEM energy monitoring module
 - Power supply
-- [Other component]
+- IP67 Waterproof Electrical Junction Box Outdoor Plastic Enclosure With Hasp Seal
 - [Other component]
 
 ## Software
