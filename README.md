@@ -57,17 +57,17 @@ Alternatives exist but Thonny as the simplest cross-platform choice.
 
 Some modules need setting up. A header in each module gives notes on setup.
 
-### modWiFi
+1) modWiFi
 wifi_entries.dat holds WiFi connections credentials. For a fixed system just one line Entry is needed. The format is like:
 SSID::PASSWORD::Region
 SSID and PASSWORD can contain a large range of characters including a space character.
 Region is a single uppercase letter. L=London time and P=Paris time 
 The file is then saved in ESP32 flash.
 
-### modMQTpub
+2) modMQTpub
 mqcons.py here is a template to be filled in with data from an MQTT server such as HiveMQ, and saved in ESP32 flash.
 
-### modDateTime
+3) modDateTime
 Write the daylight saving string defined at the start of the module
 into a file named "dst.rule" and save in ESP32 flash.
 
