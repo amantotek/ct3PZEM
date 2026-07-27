@@ -33,8 +33,16 @@ PZEM-004T units are available on Ebay (£12.43 July 2026 with case)
 ## Circuit
 ![KiCAD Circuit](ct3PZEMcircuit.jpg)
 
+Note 1: Under normal operation 5 volts is supplied to the circuit via a USB A to C lead plugged into the ESP32 board. An external mains USB adapter is needed.
+For making changes to software this lead can also be plugged into a laptop and used by tools such as Thonny. Xubuntu Operating System was used for development.
 
-![Wiring](images/wiring.jpg)
+Note 2: The PZEM modules use 5 V logic, whereas the ESP32 uses 3.3 V logic. When the PZEM modules transmit data back to the ESP32, resistor dividers reduce the voltage to a safe level for the ESP32's inputs. 
+When the ESP32 transmits data to the PZEM modules, the modules are able to correctly decode the lower-voltage 3.3 V logic signals.  
+
+Note 3: CT stands for Current Transformer. https://en.wikipedia.org/wiki/Current_transformer
+A CT is supplied with each PZEM-004T board. The CTs are rated at 100 A and have a short twisted-wire cable attached. The cable can be extended if necessary, but should be kept as short as practical. The CTs clip around the mains conductors to measure the current flowing through them.
+A CT should be placed around one conductor only, not around both Live and Neutral together, otherwise their opposing magnetic fields cancel each other.
+To ensure consistent readings, keep the orientation of all CTs the same. Clip the Heat Pump and Dwelling CTs around the Live (hopefully brown) conductors. For the Solar CT, clip it around the Neutral/return conductor. This arrangement ensures that solar generation produces a positive reading.
 
 ## How It Works
 
