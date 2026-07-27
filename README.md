@@ -27,9 +27,9 @@ This project uses an ESP32 to obtain electrical measurements from a PZEM energy 
 - and other shared modules
 
 
-## Wiring
+## Circuit
+![KiCAD Circuit](ct3PZEMcircuit.jpg)
 
-[Describe the connections here.]
 
 ![Wiring](images/wiring.jpg)
 
