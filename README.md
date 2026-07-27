@@ -10,13 +10,12 @@ The assembled project showing the ESP32, PZEM module.
 
 ## Project Overview
 
-This project uses an ESP32 to obtain electrical measurements from a PZEM energy monitoring module. The data can be processed and transmitted to other systems.
+This project uses an ESP32 to obtain electrical measurements via energy monitoring modules. The data can be processed and transmitted to other systems.
 
 ## Main Components
 
-- ESP32
+- NodeMcu ESP32 WROOM-32 Type C CH340C Development Board Dual Core WiFi Bluetooth
 - PZEM-004T AC Voltage Current Test Module plus Open CT 100A
-- Power supply
 - IP67 Waterproof Electrical Junction Box Outdoor Plastic Enclosure With Hasp Seal transparent cover, 150 mm X 150 mm X 90 mm
 - USB mains to USB 5v supply
 
@@ -25,9 +24,9 @@ PZEM-004T units are available on Ebay (£12.43 July 2026 with case)
 
 ## Software
 
-- MicroPython
-- `ct3PZEM.py`
-- and other shared modules
+- Written in MicroPython
+- ct3PZEM.py is main program needing
+- other shared modules with filenames starting with mod
 
 
 ## Circuit
@@ -46,16 +45,32 @@ To ensure consistent readings, keep the orientation of all CTs the same. Clip th
 
 ## How It Works
 
-[Brief explanation of the operation.]
+Periodically kW power readings are made by scanning each CT. Normally the period is triggered by a minute change however the user can send an Update request that will for a short time send every 10 seconds.
+The timestamped data is published to an MQTT server. Any subscriber to the server will then get the data. The time stamp is used at the receiving end to check the data is live.  
 
 ## Installation
 
-[Explain how to install the MicroPython files on the ESP32.]
+The ESP32 was programmed using Thonny on a Linux Xubuntu system. Thonny is available for Windows, macOS and Linux, so the same MicroPython development environment can be used regardless of the computer's operating system.
+Alternatives exist but Thonny as the simplest cross-platform choice.
 
 ## Configuration
 
-[Explain any settings that need to be changed.]
+Some modules need setting up. A header in each module gives notes on setup.
+
+### modWiFi
+wifi_entries.dat holds WiFi connections credentials. For a fixed system just one line Entry is needed. The format is like:
+SSID::PASSWORD::Region
+SSID and PASSWORD can contain a large range of characters including a space character.
+Region is a single uppercase letter. L=London time and P=Paris time 
+The file is then saved in ESP32 flash.
+
+### modMQTpub
+mqcons.py here is a template to be filled in with data from an MQTT server such as HiveMQ, and saved in ESP32 flash.
+
+### modDateTime
+Write the daylight saving string defined at the start of the module
+into a file named "dst.rule" and save in ESP32 flash.
 
 ## Version History
 
-[Optional notes about significant changes.]
+Each MicroPython file has Filename and Version in the first two lines.
