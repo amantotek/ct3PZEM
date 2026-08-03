@@ -74,10 +74,10 @@ into a file named "dst.rule" and save in ESP32 flash.
 ## Test Setup
 
 ![Test Rig](calibTestSetup.jpg)
-A short length of mains cable with live (brown) separated conductor/core has mains plug and socket attached.
-The three CTs attached to the powered up ct3PZEM equipment were clipped onto the brown cable all facing the same way.
-(In photo only two blue CTs are shown)
-A Power Meter (Ebay: LCD Plug in Electricity Power Consumption Meter Energy Monitor) shows the power taken by the kettle plugged into far left hand side.
+A short length of mains cable with live (brown) separated conductor/core has mains plug and socket attached.  
+The three CTs attached to the powered up ct3PZEM equipment were clipped onto the brown cable all facing the same way.  
+(In photo only two blue CTs are shown)  
+A Power Meter (Ebay: LCD Plug in Electricity Power Consumption Meter Energy Monitor) shows the power taken by the kettle plugged into far left hand side.  
 
 ![Power Meter Reading in Watts (W)](calibPwrMeterReading.jpg)
 Power Meter is reading 2.077 kW
