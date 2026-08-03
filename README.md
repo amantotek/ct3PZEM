@@ -15,7 +15,7 @@ This project uses an ESP32 to obtain electrical measurements via energy monitori
 ## Main Components
 
 - NodeMcu ESP32 WROOM-32 Type C CH340C Development Board Dual Core WiFi Bluetooth
-- PZEM-004T AC Voltage Current Test Module plus Open CT 100A
+- PZEM-004T AC Voltage Current Test Module plus Open CT 100A (3 needed)
 - IP67 Waterproof Electrical Junction Box Outdoor Plastic Enclosure With Hasp Seal transparent cover, 150 mm X 150 mm X 90 mm
 - USB mains to USB 5v supply
 
@@ -70,6 +70,20 @@ mqcons.py here is a template to be filled in with data from an MQTT server such 
 3) **modDateTime**  
 Write the daylight saving string defined at the start of the module
 into a file named "dst.rule" and save in ESP32 flash.
+
+## Test Setup
+
+![Test Rig](calibTestSetup.jpg)
+A short length of mains cable with live (brown) separated conductor/core has mains plug and socket attached.
+The three CTs attached to the powered up ct3PZEM equipment were clipped onto the brown cable all facing the same way.
+(In photo only two blue CTs are shown)
+A Power Meter (Ebay: LCD Plug in Electricity Power Consumption Meter Energy Monitor) shows the power taken by the kettle plugged into far left hand side.
+
+![Power Meter Reading in Watts (W)](calibPwrMeterReading.jpg)
+Power Meter is reading 2.077 kW
+
+![ct3PZEM Measured Power Readings](calib3xPwrDisplayd.jpg)
+See Solar and HeatPump 2.1 kW readings and 2.0 kW for House at bottom of mobile phone display.
 
 ## Version History
 
