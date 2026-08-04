@@ -17,10 +17,12 @@ This project uses an ESP32 to obtain electrical measurements via energy monitori
 - NodeMcu ESP32 WROOM-32 Type C CH340C Development Board Dual Core WiFi Bluetooth
 - PZEM-004T AC Voltage Current Test Module plus Open CT 100A (3 needed)
 - IP67 Waterproof Electrical Junction Box Outdoor Plastic Enclosure With Hasp Seal transparent cover, 150 mm X 150 mm X 90 mm
+- XH 2.54mm Connectors Wire 4-Pin Male Female 24AWG 15CM JST Cable UK Pack Size: 5 pairs (5 wire + 5 socket) To fit PZEM-004T
 - USB mains to USB 5v supply
 
-PZEM-004T units are available on Ebay (£12.43 July 2026 with case)
-![PZEM unit with case and open CT coil](PZEMwithCase.jpg)
+![PZEM unit with case and open CT coil](PZEMwithCase.jpg)  
+PZEM-004T units are available on Ebay (£12.43 July 2026 with case).   
+Each unit needs one XH 2.54mm 4-Pin Connector.  
 
 ## Software
 
@@ -41,12 +43,13 @@ When the ESP32 transmits data to the PZEM modules, the modules are able to corre
 Note 3: CT stands for Current Transformer. https://en.wikipedia.org/wiki/Current_transformer
 A CT is supplied with each PZEM-004T board. The CTs are rated at 100 A and have a short twisted-wire cable attached. The cable can be extended if necessary, but should be kept as short as practical. The CTs clip around the mains conductors to measure the current flowing through them.
 A CT should be placed around one conductor only, not around both Live and Neutral together, otherwise their opposing magnetic fields cancel each other.
-To ensure consistent readings, keep the orientation of all CTs the same. Clip the Heat Pump and Dwelling CTs around the Live (hopefully brown) conductors. For the Solar CT, clip it around the Neutral/return conductor. This arrangement ensures that solar generation produces a positive reading.
+To ensure consistent polarity, keep the orientation of all CTs the same. Clip the Heat Pump and Dwelling CTs around the Live (hopefully brown) conductors. For the Solar CT, clip it around the Neutral/return conductor. This arrangement ensures that solar generation produces a positive reading.
 
 ## How It Works
 
 Periodically kW power readings are made by scanning each CT. Normally the period is triggered by a minute change however the user can send an Update request that will for a short time send every 10 seconds.
 The timestamped data is published to an MQTT server. Any subscriber to the server will then get the data. The time stamp is used at the receiving end to check the data is live.  
+A blue LED on the ESP32 board flashes slowly after each scan gradually getting faster until a scan is made.
 
 ## Installation
 
